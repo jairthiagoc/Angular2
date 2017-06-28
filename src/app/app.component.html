@@ -1,0 +1,36 @@
+<h1>Contas Pessoais</h1>
+
+<div>
+  <h2>Minha conta</h2>
+  <div *ngIf="_contas.length ==0">Não possui contas cadastradas. Por favor Cadastre-se</div>
+  <div *ngFor="#conta of _contas, let #i = index">
+    <h2>{{conta.titulo}} ({{conta.id}})</h2>
+    <p>{{conta.descricao}}</p>
+    <p>
+      Balancete:<strong>{{conta.valor}}</strong>
+    </p>
+    <button (click)="removerConta(i)">Excluir</button>
+  </div>
+</div>
+
+<div>
+  <div>
+    <label for="titulo">Titulo</label>
+    <input id="titulo" type="text" nome="titulo" value="" #titulo>
+  </div>
+
+  <div>
+    <label for="desc">Descrição</label>
+    <input id="desc" type="text" nome="desc" value="" #desc>
+  </div>
+
+  <div>
+    <label for="valor">Valor</label>
+    <input id="valor" type="text" nome="valor" value="" #valor>
+  </div>
+
+  <div>
+    <button (click)="CriaConta(titulo, desc, valor)">Criar</button>
+  </div>
+
+</div>
